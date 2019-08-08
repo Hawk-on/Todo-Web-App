@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using App.API.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace App.API.Controllers
 {
-    // POST http://localhost:5000/api/values/5
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -27,7 +25,7 @@ namespace App.API.Controllers
             return Ok(users);
         }
 
-        // GET api/users/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUser(int id)
         {

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using App.API.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace App.API.Controllers
 {
-    // POST http://localhost:5000/api/values/5
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class TodosController : ControllerBase
@@ -28,7 +26,7 @@ namespace App.API.Controllers
         }
 
 
-        // GET api/todos/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public IActionResult GetTodoPoint(int id)
         {
