@@ -1,24 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { TodoComponent } from './todo/todo.component';
+import { NavComponent } from './nav/nav.component';
+import { AuthService } from './_services/auth.service';
 
 @NgModule({
    declarations: [
       AppComponent,
       UserComponent,
-      TodoComponent
+      TodoComponent,
+      NavComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
-      AppRoutingModule
+      AppRoutingModule,
+      FormsModule
    ],
-   providers: [],
+   providers: [
+     AuthService
+   ],
    bootstrap: [
       AppComponent
    ]
