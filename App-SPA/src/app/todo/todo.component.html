@@ -1,0 +1,15 @@
+<h1>TODO POINTS</h1>
+<table style="width: 50%, border=1px solid black">
+  <tr>
+  <th>Table id</th>
+  <th>Title</th>
+  <th>Description</th>
+  <th>Type</th>
+</tr>
+<tr *ngFor="let todo of todos">
+  <th>{{ todo.id }}</th>
+  <th>{{ todo.title }}</th>
+  <th>{{ todo.description }}</th>
+  <th>{{ todo.type }}</th>
+</tr>
+</table>
