@@ -12,6 +12,8 @@ namespace App.API.Dtos
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+        [Required]
+        public string FullName { get; set; }
 
     }
 }

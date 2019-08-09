@@ -1,18 +1,34 @@
 <div class="container mt-5">
   <div *ngIf="!registerMode" style="text-align: center">
-  <h1>Find and register user profiles and todo points</h1>
-  <p class="lead">Here you can see other users and their todo points.</p>
-  <div class="text-center">
-    <button class="btn btn-primary btn-lg mr-2"(click)=registerToggle()>Register</button>
-    <button class="btn btn-info btn-lg">Learn More</button>
+    <h1>Find and register user profiles and todo points</h1>
+    <p class="lead">Here you can see other users and their todo points.</p>
+    <p>Select User to view todo points.</p>
+    <a *ngIf="!selectedUser">
+      <select type="number" [(ngModel)]="currentUser">
+        <option *ngFor="let user of users" [ngValue]="user">{{user.username}}</option>
+      </select>
+      <br>
+      Username: {{currentUser.username | json}} <br>
+      Email: {{ currentUser.email | json }} <br>
+      Full name: {{ currentUser.name | json }} <br>
+      <p *ngFor="let todo of userTodoList">
+        <br>
+        Author: {{ currentUser.username }}<br>
+        Title: {{ todo.title }} <br>
+        Type: {{ todo.type }} <br>
+        Description: {{ todo.description }} <br>
+      </p>
+    </a>
+    <div class="text-center">
+      <button class="btn btn-primary btn-lg mr-2" (click)=registerToggle()>Register</button>
+      <button class="btn btn-info btn-lg">Learn More</button>
+    </div>
   </div>
-</div>
-<div *ngIf="registerMode" class="container">
-  <div class="row justify-content-center">
-    <div class="col-4">
-      <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+  <div *ngIf="registerMode" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+      </div>
     </div>
   </div>
 </div>
-</div>
-

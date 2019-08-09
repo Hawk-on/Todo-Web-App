@@ -35,7 +35,9 @@ namespace App.API.Controllers
 
             var userToCreate = new User
             {
-                Username = userForRegisterDto.Username
+                Username = userForRegisterDto.Username,
+                Email = userForRegisterDto.Email,
+                Name = userForRegisterDto.FullName
             };
 
             var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
