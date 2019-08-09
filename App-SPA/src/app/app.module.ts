@@ -5,17 +5,19 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
 import { TodoComponent } from './todo/todo.component';
 import { NavComponent } from './nav/nav.component';
 import { AuthService } from './_services/auth.service';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
    declarations: [
       AppComponent,
-      UserComponent,
       TodoComponent,
-      NavComponent
+      NavComponent,
+      HomeComponent,
+      RegisterComponent
    ],
    imports: [
       BrowserModule,
@@ -24,7 +26,7 @@ import { AuthService } from './_services/auth.service';
       FormsModule
    ],
    providers: [
-     AuthService
+      AuthService
    ],
    bootstrap: [
       AppComponent

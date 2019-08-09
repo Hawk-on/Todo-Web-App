@@ -16,7 +16,7 @@ namespace App.API.Controllers
             this._context = context;
         }
 
-        // GET api/todos
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult GetTodoPoints()
         {
